@@ -13,7 +13,7 @@ import (
 func main() {
 
 	if err := godotenv.Load(".env.local"); err != nil {
-		fmt.Println("⚠️⚠️⚠️  .env.local not found, fallback to .env")
+		fmt.Println("📢📢📢  .env.local not found, fallback to .env")
 		godotenv.Load(".env")
 	} else {
 		fmt.Println("✅✅✅ Environment loaded from .env.local")
