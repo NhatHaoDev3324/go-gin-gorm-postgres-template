@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/NhatHaoDev3324/go-gin-gorm-postgres-template/pkg/utils"
+	"github.com/NhatHaoDev3324/go-gin-gorm-postgres-template/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,14 +15,14 @@ func AuthMiddleware() gin.HandlerFunc {
 
 		authHeader := ctx.GetHeader("Authorization")
 		if authHeader == "" {
-			ctx.JSON(http.StatusUnauthorized, gin.H{"message": "Token không tồn tại"})
+			ctx.JSON(http.StatusUnauthorized, gin.H{"message": "Token not found"})
 			ctx.Abort()
 			return
 		}
 
 		parts := strings.Split(authHeader, " ")
 		if len(parts) != 2 || strings.ToLower(parts[0]) != "bearer" {
-			ctx.JSON(http.StatusUnauthorized, gin.H{"message": "Sai định dạng token"})
+			ctx.JSON(http.StatusUnauthorized, gin.H{"message": "Token format is invalid"})
 			ctx.Abort()
 			return
 		}
@@ -30,7 +30,7 @@ func AuthMiddleware() gin.HandlerFunc {
 
 		claims, err := utils.ParseAccessToken(tokenString)
 		if err != nil || claims == nil {
-			ctx.JSON(http.StatusUnauthorized, gin.H{"message": "Token hết hạn hoặc không hợp lệ"})
+			ctx.JSON(http.StatusUnauthorized, gin.H{"message": "Token is expired or invalid"})
 			ctx.Abort()
 			return
 		}

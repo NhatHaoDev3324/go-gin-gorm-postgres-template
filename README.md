@@ -27,7 +27,7 @@ Dự án được phân chia theo từng Module chức năng, giúp tách biệt
 │           ├── repository/ # Infrastructure Layer: Truy vấn PostgreSQL & Redis
 │           ├── model/      # Data Layer: Định nghĩa Schema & Entity
 │           └── routes.go   # Module-specific Routing
-├── pkg/                    # Các tiện ích dùng chung (Utilities)
+├── utils/                  # Các tiện ích dùng chung (Utilities)
 ├── Dockerfile              # Cấu hình Build tối ưu (Multi-stage build)
 ├── docker-compose.yml      # Orchestration cho toàn bộ Stack (App, DB, Redis)
 └── .env                    # Cấu hình môi trường (Không commit file này)

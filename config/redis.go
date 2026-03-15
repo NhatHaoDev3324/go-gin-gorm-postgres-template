@@ -27,6 +27,6 @@ func ConnectRedis() *redis.Client {
 		log.Fatalf("❌❌❌ Failed to connect to Redis: %v", err)
 	}
 
-	fmt.Println("✅✅✅ Connected to Redis successfully!")
+	log.Println("✅✅✅ Connected to Redis successfully!")
 	return rdb
 }

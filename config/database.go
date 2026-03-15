@@ -32,6 +32,6 @@ func ConnectDB() *gorm.DB {
 
 	db.AutoMigrate(&model.User{})
 
-	fmt.Println("✅✅✅ Connected to PostgreSQL successfully!")
+	log.Println("✅✅✅ Connected to PostgreSQL successfully!")
 	return db
 }
